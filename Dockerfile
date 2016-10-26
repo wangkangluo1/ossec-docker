@@ -29,10 +29,13 @@ RUN cd /tmp \
 COPY ./analogi.tar.gz /tmp/analogi.tar.gz
 RUN tar xvzf /tmp/analogi.tar.gz -C /var/www/html/ \
     && cd /var/www/html/ \
-    && cp analogi/db_ossec.php.new analogi/db_ossec.php 
+    && cp /var/www/html/analogi/db_ossec.php.new /var/www/html/analogi/db_ossec.php
+
+COPY ./startup.sh /root/startup.sh
+RUN chmod +x /root/startup.sh
 
 expose 80/tcp
 expose 1514/udp
 
-CMD ["/bin/bash"]
+CMD ["/root/startup.sh"]
 
