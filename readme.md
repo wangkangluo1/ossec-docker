@@ -1,4 +1,5 @@
 #ossec-docker使用
+##使用
 #####创建数据库（如果使用已有数据，请直接忽略此操作）
 
 ```
@@ -18,11 +19,12 @@
 |MYSQL_PASSWORD|mysql密码|
 |MYSQL_DB|数据库名|
 
-#####构建
-```
-docker build -t ossec-server:$version ./
-```
 
 #####访问UI: 
 http://$your_ip/analogi
 http://$your_ip/ossec
+
+##构建
+```
+docker build -t ossec-server:$version ./
+```
