@@ -4,13 +4,12 @@
 ```
 # mysql -u root -p ossec < mysql.schema
 ```
-
+[mysql.schema](https://github.com/user/repo/blob/branch/other_file.md)
 
 ####运行ossec-server
  
 ```
-# docker run --name ossec-server  -e MYSQL_SERVER=127.0.0.1 -e MYSQL_USERNAME=root -e MYSQL_PASSWORD=123456 -e MYSQL_DB=ossec -p 8089:80 -
-d wangkangluo1/ossec-docker
+# docker run --name ossec-server  -e MYSQL_SERVER=127.0.0.1 -e MYSQL_USERNAME=root -e MYSQL_PASSWORD=123456 -e MYSQL_DB=ossec -p 8089:80 --net=host -d wangkangluo1/ossec-docker
 ```
 |变量||
 |--------|--------|

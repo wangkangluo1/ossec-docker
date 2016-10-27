@@ -15,15 +15,17 @@ RUN set -xe \
     && usermod -G ossec ossecr \
     && usermod -G ossec ossecm 
 
+#apache setup
+
+
 #ossec web ui
 COPY ./v0.8.tar.gz /tmp/v0.8.tar.gz 
 RUN cd /tmp \
     && tar -xvzf v0.8.tar.gz \
     && mkdir -p /var/www/html/ossec/tmp/ \
     && mv ossec-wui-0.8/* /var/www/html/ossec/ \
-    && chown www-data:www-data /var/www/html/ossec/tmp/ \
-    && chmod 666 /var/www/html/ossec/tmp \
-    && usermod -a -G ossec www-data 
+    && chown ossec:ossec /var/www/html/ossec/tmp/ \
+    && chmod 666 /var/www/html/ossec/tmp
 
 #install analogi web dashboard
 COPY ./analogi.tar.gz /tmp/analogi.tar.gz
