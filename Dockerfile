@@ -16,7 +16,10 @@ RUN set -xe \
     && usermod -G ossec ossecm 
 
 #apache setup
-
+RUN APACHE_RUN_USER_LINE="$(grep -nP 'APACHE_RUN_USER' /etc/apache2/envvars|cut -f1 -d:)" \
+    && APACHE_RUN_GROUP_LINE="$(grep -nP 'APACHE_RUN_GROUP_LINE' /etc/apache2/envvars|cut -f1 -d:)" \
+    && sed -ie "${APACHE_RUN_USER_LINE}s/www-data/ossec/" /etc/apache2/envvars \
+    && sed -ie "${APACHE_RUN_GROUP_LINE}s/www-data/ossec/" /etc/apache2/envvars
 
 #ossec web ui
 COPY ./v0.8.tar.gz /tmp/v0.8.tar.gz 
