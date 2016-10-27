@@ -9,7 +9,7 @@
 ####运行ossec-server
  
 ```
-# docker run --name ossec-server  -e MYSQL_SERVER=127.0.0.1 -e MYSQL_USERNAME=root -e MYSQL_PASSWORD=123456 -e MYSQL_DB=ossec -p 8089:80 --net=host -d wangkangluo1/ossec-docker
+# docker run --name ossec-server  -e MYSQL_SERVER=127.0.0.1 -e MYSQL_USERNAME=root -e MYSQL_PASSWORD=123456 -e MYSQL_DB=ossec --net=host -d wangkangluo1/ossec-docker
 ```
 |变量||
 |--------|--------|
@@ -18,7 +18,11 @@
 |MYSQL_PASSWORD|mysql密码|
 |MYSQL_DB|数据库名|
 
+#####构建
+```
+docker build -t ossec-server:$version ./
+```
 
 #####访问UI: 
-http://$your_ip:3000/analogi
-
+http://$your_ip/analogi
+http://$your_ip/ossec
