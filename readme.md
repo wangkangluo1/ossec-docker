@@ -7,6 +7,8 @@ ossec-docker 一个机遇docker的ossec server
 # mysql -u root -p ossec < mysql.schema
 ```
 [mysql.schema](https://github.com/user/repo/blob/branch/other_file.md)
+或
+wget http://roy-public.oss-cn-hangzhou.aliyuncs.com/mysql.schema
 
 ####运行ossec-server
  
